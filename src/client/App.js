@@ -54,10 +54,17 @@ export default class App extends Component {
     voice.draw(context, stave);
   }
 
-  handleClick(e) {
+  start(){
     // modify the state, this will automatically recall render() below.
     this.init_score();
+
+
   }
+
+  handleClick(e) {
+    this.start()
+  }
+
 
 
 
