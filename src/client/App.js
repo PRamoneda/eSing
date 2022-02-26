@@ -54,9 +54,21 @@ export default class App extends Component {
     voice.draw(context, stave);
   }
 
+  play_tuning_fork() {
+    var audio = new Audio('la440.wav');
+    audio.play();
+  }
+
+  capture_audio() {
+
+  }
+
   start(){
     // modify the state, this will automatically recall render() below.
     this.init_score();
+    this.play_tuning_fork()
+
+    this.setTimeout(capture_audio, 4000);
 
 
   }

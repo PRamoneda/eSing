@@ -14,9 +14,7 @@
       <change beforePath="$PROJECT_DIR$/src/client/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/app.css" afterDir="false" />
     </list>
-    <list id="6708b032-7e84-4925-88eb-a3c2536f1b5d" name="Changes by agpol" comment="">
-      <change beforePath="$PROJECT_DIR$/src/client/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/App.js" afterDir="false" />
-    </list>
+    <list id="6708b032-7e84-4925-88eb-a3c2536f1b5d" name="Changes by agpol" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,17 +31,6 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/client/App.js">
-      <ranges>
-        <range start1="2" end1="2" start2="2" end2="4" changelist="6708b032-7e84-4925-88eb-a3c2536f1b5d" />
-        <range start1="5" end1="6" start2="7" end2="15" changelist="e981152a-3e4a-4d8e-8670-609d81e685fd" />
-        <range start1="7" end1="11" start2="16" end2="54" changelist="e981152a-3e4a-4d8e-8670-609d81e685fd" />
-        <range start1="12" end1="12" start2="55" end2="79" changelist="e981152a-3e4a-4d8e-8670-609d81e685fd" />
-        <range start1="17" end1="19" start2="84" end2="159" changelist="e981152a-3e4a-4d8e-8670-609d81e685fd" />
-      </ranges>
-    </file>
   </component>
   <component name="ProjectId" id="25eeAh1gEiisLbkMzbCQwgKLtIP" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
