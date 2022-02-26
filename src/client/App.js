@@ -9,7 +9,7 @@ export default class App extends Component {
     super(props);
     this.handleClick = this.handleClick.bind(this);
   }
-  state = { username: null, note1: null, note2: null, div_score: null, primero:null};
+  state = { username: null, note1: null, note2: null, div_score: null, primero:null, partitura:false};
 
   init_score(){
     console.log("init_score");
@@ -64,14 +64,39 @@ export default class App extends Component {
   }
 
   start(){
-    // modify the state, this will automatically recall render() below.
-    this.init_score();
-    this.play_tuning_fork()
+    if(!this.partitura){
+      // modify the state, this will automatically recall render() below.
+      document.getElementById('score').innerHTML = "";
+      this.dotsBlinker();
+      this.init_score();
+      this.partitura = true;
+      document.getElementById('boton').style.ariaDisabled=true;
+      this.play_tuning_fork()
+      this.setTimeout(capture_audio, 4000);
+    }
 
-    this.setTimeout(capture_audio, 4000);
 
 
   }
+
+
+  sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+  dotsBlinker(){
+    document.getElementById("p0").style.opacity="1";
+    document.getElementById("p1").style.opacity="0";
+    document.getElementById("p2").style.opacity="0";
+    document.getElementById("p3").style.opacity="0";
+    document.getElementById("p4").style.opacity="0";
+    setTimeout(() => {   document.getElementById("p1").style.opacity="1"; document.getElementById("p0").style.opacity="0";}, 4000);
+    setTimeout(() => {   document.getElementById("p2").style.opacity="1"; document.getElementById("p1").style.opacity="0";}, 5000);
+    setTimeout(() => {   document.getElementById("p3").style.opacity="1"; document.getElementById("p2").style.opacity="0";}, 6000);
+    setTimeout(() => {   document.getElementById("p4").style.opacity="1"; document.getElementById("p3").style.opacity="0";}, 7000);
+    setTimeout(() => {   document.getElementById("p4").style.opacity="0"; this.partitura = false ; }, 8000);
+  }
+
 
   handleClick(e) {
     this.start()
@@ -83,10 +108,7 @@ export default class App extends Component {
 
 
 
-  dotsBlinker(){
-    this.primero = document.getElementById("p1")
 
-  }
 
 
 
@@ -98,7 +120,7 @@ export default class App extends Component {
           <h1 className="display-1">eSing</h1>
           <div className="row">
             <div className="col-4">
-              <button type="button" className="btn btn-outline-primary" onClick={this.handleClick}>Start</button>
+              <button id="boton" type="button" className="btn btn-primary" onClick={this.handleClick}>Start</button>
             </div>
           </div>
         </div>
@@ -113,9 +135,9 @@ export default class App extends Component {
           </div>
           <div className="row">
             <div className="col-2">
-              <div className="blink_me">Metro: 60</div>
+              <h5>Metro: 60</h5>
             </div>
-            <div id="p0" className="col-2" >
+            <div id="p0" className="col-2">
               <div className="blink_me">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                      className="bi bi-circle-fill" viewBox="0 0 16 16">
@@ -124,7 +146,7 @@ export default class App extends Component {
               </div>
             </div>
             <div  id="p1" className="col-1">
-              <div className="blink_me">
+              <div >
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                      className="bi bi-circle" viewBox="0 0 16 16">
                   <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
@@ -132,7 +154,7 @@ export default class App extends Component {
               </div>
             </div>
             <div id="p2" className="col-1">
-              <div className="blink_me">
+              <div >
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                      className="bi bi-circle" viewBox="0 0 16 16">
                   <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
@@ -140,7 +162,7 @@ export default class App extends Component {
               </div>
             </div>
             <div id="p3" className="col-1">
-              <div className="blink_me">
+              <div >
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                      className="bi bi-circle" viewBox="0 0 16 16">
                   <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
@@ -148,7 +170,7 @@ export default class App extends Component {
               </div>
             </div>
             <div id="p4" className="col-1">
-              <div className="blink_me">
+              <div >
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                      className="bi bi-circle" viewBox="0 0 16 16">
                   <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
