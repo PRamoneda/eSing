@@ -67,7 +67,8 @@ export default class App extends Component {
     if(!this.partitura){
       // modify the state, this will automatically recall render() below.
       document.getElementById('score').innerHTML = "";
-      this.dotsBlinker();
+      var tempo = document.getElementById('tempoImput').value;
+      this.dotsBlinker(tempo);
       this.init_score();
       this.partitura = true;
       document.getElementById('boton').style.ariaDisabled=true;
@@ -84,7 +85,7 @@ export default class App extends Component {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
 
-  dotsBlinker(){
+  dotsBlinker(tempo){
     document.getElementById("p0").style.opacity="1";
     document.getElementById("p1").style.opacity="0";
     document.getElementById("p2").style.opacity="0";
@@ -135,7 +136,14 @@ export default class App extends Component {
           </div>
           <div className="row">
             <div className="col-2">
-              <h5>Metro: 60</h5>
+              <div className="row">
+                <div className="col-5">
+                  <h5>Metro: </h5>
+                </div>
+                <div className="col-7">
+                  <input className="form-control" type="number" id="tempoImput" min="1" data-bind="value:replyNumber" placeholder="60" />
+                </div>
+              </div>
             </div>
             <div id="p0" className="col-2">
               <div className="blink_me">
